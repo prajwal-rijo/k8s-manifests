@@ -2,23 +2,33 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: myapp
+name: myapp
+labels:
+app: myapp
 
 spec:
-  replicas: 2
+replicas: 2
 
-  selector:
-    matchLabels:
-      app: myapp
+selector:
+matchLabels:
+app: myapp
 
-  template:
-    metadata:
-      labels:
-        app: myapp
+template:
+metadata:
+labels:
+app: myapp
 
-    spec:
-      containers:
-      - name: myapp
-        image: 933747314862.dkr.ecr.ap-south-1.amazonaws.com/myapp:1
-        ports:
-        - containerPort: 5000
+```
+spec:
+  imagePullSecrets:
+  - name: ecr-secret
+
+  containers:
+  - name: myapp
+    image: 933747314862.dkr.ecr.ap-south-1.amazonaws.com/myapp:1
+    imagePullPolicy: Always
+
+    ports:
+    - containerPort: 5000
+```
+

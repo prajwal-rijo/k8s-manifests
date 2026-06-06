@@ -19,7 +19,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/myapp:1
-
+        image: 933747314862.dkr.ecr.ap-south-1.amazonaws.com/myapp:1
         ports:
         - containerPort: 5000
